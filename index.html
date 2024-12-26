@@ -1,0 +1,128 @@
+---
+layout: page
+title: Quixx
+custom-header-image: /assets/quixxHeader.jpg
+---
+<style>
+h1 {
+  text-align: center;
+}
+
+
+
+</style>
+<body onload="onLoad()"></body>
+<script>
+function onLoad()
+{
+  
+  if (navigator.userAgent.indexOf('Win') != -1) onPlatformPress("windows")
+  else if (navigator.userAgent.indexOf('iPhone') != -1) onPlatformPress("ios")
+  else if (navigator.userAgent.indexOf('iPad') != -1) onPlatformPress("ios")
+  else if (navigator.userAgent.indexOf('Nintendo Switch') != -1) onPlatformPress("switch")
+  else if (navigator.userAgent.indexOf('Mac') != -1) onPlatformPress("macos")
+  else if (navigator.userAgent.indexOf('Linux') != -1) onPlatformPress("linux")
+  else if (navigator.userAgent.indexOf('Android') != -1) onPlatformPress("android")
+  else onPlatformPress("browser")
+}
+function onPlatformPress(id) {
+  var allDownloads = ["linux","windows","macos","android","ios","switch","browser"]
+  allDownloads.forEach(element => {
+    if(element!=id) hide(element+"Downloads")
+
+    var z = document.getElementById(element+"DownloadsButton")
+    addClass(z,"ungray-onhover")
+
+    if(document.getElementById(id+"Downloads").style.display!="block"&&element==id)
+      removeClass(z,"ungray-onhover")
+  });
+
+  if(id=="browser")document.getElementById("quixxonline").src = "/quixx/online/index.html"
+  else document.getElementById("quixxonline").src = ""
+  
+  toggle(id+"Downloads")
+}
+</script>
+
+
+
+
+<div class="horizontal-centered">
+  <button id="linuxDownloadsButton" onclick="onPlatformPress('linux')" class="download-platform-selector-button ungray-onhover">
+    <img src="/assets/linux-icon.svg" style="width:60px;height:60px;">
+    <p class="download-platform-selector-button-subtext">Linux</p>
+  </button>
+  <button id="windowsDownloadsButton" onclick="onPlatformPress('windows')" class="download-platform-selector-button ungray-onhover">
+    <img src="/assets/windows-icon.svg" style="width:60px;height:60px;">
+    <p class="download-platform-selector-button-subtext">Windows</p>
+  </button>
+  <button id="macosDownloadsButton" onclick="onPlatformPress('macos')" class="download-platform-selector-button ungray-onhover">
+    <img src="/assets/apple-icon.svg" style="width:60px;height:60px;">
+    <p class="download-platform-selector-button-subtext">MacOS</p>
+  </button>
+  <button id="browserDownloadsButton" onclick="onPlatformPress('browser')" class="download-platform-selector-button ungray-onhover">
+    <img src="/assets/browser-icon.svg" style="width:60px;height:60px;">
+    <p class="download-platform-selector-button-subtext">Browser</p>
+  </button>
+  <button id="androidDownloadsButton" onclick="onPlatformPress('android')" class="download-platform-selector-button ungray-onhover">
+    <img src="/assets/android-icon.svg" style="width:60px;height:60px;">
+    <p class="download-platform-selector-button-subtext">Android</p>
+  </button>
+  <button id="iosDownloadsButton" onclick="onPlatformPress('ios')" class="download-platform-selector-button ungray-onhover">
+    <img src="/assets/iphone-icon.svg" style="width:60px;height:60px;">
+    <p class="download-platform-selector-button-subtext">iOS</p>
+  </button>
+  <button id="switchDownloadsButton" onclick="onPlatformPress('switch')" class="download-platform-selector-button ungray-onhover">
+    <img src="/assets/switch-icon.svg" style="width:60px;height:60px;">
+    <p class="download-platform-selector-button-subtext">Switch</p>
+  </button>
+</div>
+
+
+
+<p></p>
+<div id="linuxDownloads" class="gone">
+  <p>Linux Downloads:<br />
+   <a href="https://github.com/ThatFinnDev/Quixx/releases/latest/download/Quixx-Linux.zip">x86_64.zip from Github</a>
+  </p>
+</div>
+<div id="windowsDownloads" class="gone">
+  <p>Windows Downloads:<br />
+   <a href="https://github.com/ThatFinnDev/Quixx/releases/latest/download/Quixx-Windows.zip">x86_64.zip from Github</a>
+  </p>
+</div>
+<div id="macosDownloads" class="gone">
+  <p>MacOS Downloads:<br />
+   <a href="https://github.com/ThatFinnDev/Quixx/releases/latest/download/Quixx-Mac.zip">zip from Github</a>
+  </p>
+</div>
+<div id="androidDownloads" class="gone">
+  <p><strong>The app is currently NOT available on the PlayStore!</strong></p>
+  <p>Android Downloads:<br/>
+    <a href="/fdroid">Add FullCodes F-Droid Repo</a><br/>
+   <a href="https://github.com/ThatFinnDev/Quixx/releases/latest/download/Quixx-Android.apk">universal apk from Github</a>
+  </p>
+</div>
+<div id="iosDownloads" class="gone">
+  <p><strong>The app is currently NOT available on the AppStore!</strong></p>
+  <p>iOS Downloads:<br/>
+   <a href="/sidestore">Add FullCodes SideStore Repo</a><br/>
+   <a href="https://github.com/ThatFinnDev/Quixx/releases/latest/download/Quixx-iOS.ipa">arm64 apk iOS 10+ from Github</a><br/>
+   <a href="https://github.com/ThatFinnDev/Quixx-Legacy-iOS/releases/latest/download/Quixx-iOSLegacy.ipa">arm32 apk iOS 8-11 from Github (legacy version made in unity)</a>
+  </p>
+</div>
+<div id="switchDownloads" class="gone">
+  <p><strong>The app is currently NOT available on the eShop!</strong> <br/>
+  You need a jailbroken switch in order to run the game!
+  <p>Switch Downloads:</p>
+   <a href="https://github.com/ThatFinnDev/Quixx/releases/latest/download/Quixx-Switch.nro">homebrew nro from Github</a>
+  </p>
+</div>
+<div id="browserDownloads" class="gone">
+  <p>The browser version might not be supported on your browser, you can try another browser if it doesn't (Chrome usually works)<br />
+    You can also open the <a href="online/">direct link</a> of the online version, if fullscreen is not supported in your browser</p>
+  <iframe id="quixxonline" title="quixxonline" class="onlinegame"></iframe> 
+</div>
+
+<p>The policy is available over <a href="policy">here</a></br>
+  The source is available over <a href="https://github.com/ThatFinnDev/Quixx">here</a></p>
