@@ -2,7 +2,7 @@
 layout: policy
 title: Quixx
 center-text: Quixx Policy
-permalink: /quixx/policy/
+permalink: /policy/
 source: https://github.com/ThatFinnDev/Quixx
 --- 
 
