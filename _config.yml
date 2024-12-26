@@ -21,7 +21,7 @@
 title: Quixx
 email: fullcodesmail@gmail.com
 description: >- # this means to ignore newlines until "baseurl:"
-  Quixx the game
+  The most necessary app on planet earth
 baseurl: "/" # the subpath of your site, e.g. /blog
 url: "https://quixx.fullcodes.thatfinn.dev" # the base hostname & protocol for your site, e.g. http://example.com
 github_username:  ThatFinnDev
